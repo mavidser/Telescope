@@ -12,4 +12,4 @@ before_script:
 
 script:
   - set JASMINE_BROWSER=Firefox 
-  - meteor --test
+  - /usr/local/bin/meteor --test
