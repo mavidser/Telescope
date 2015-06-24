@@ -1,1 +1,1 @@
-Telescope comments package, used internally. 
+Telescope comments package, used internally.
