@@ -45,8 +45,7 @@ Posts.getSubParams = function (terms) {
     parameters.find.categories = {$in: [categoryId]};
   }
   
-  // TODO : make it more idiomatic
-  if (terms.user) {
+  if (terms.user && !terms.admin) {
     parameters.find.$or = [ { private: { $ne: true } }, { author: terms.user } ];
   }
 

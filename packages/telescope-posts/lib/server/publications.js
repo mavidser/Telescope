@@ -4,7 +4,10 @@ Posts._ensureIndex({"status": 1, "postedAt": 1});
 
 Meteor.publish('postsList', function(terms) {
   if(Users.can.viewById(this.userId)){
-    terms.user = Meteor.users.findOne(this.userId).username;
+    terms.user = Meteor.users.findOne(this.userId);
+    if(terms.user)
+      terms.user = terms.user.username;
+    terms.admin = Users.is.adminById(this.userId);
     var parameters = Posts.getSubParams(terms),
         posts = Posts.find(parameters.find, parameters.options);
 
