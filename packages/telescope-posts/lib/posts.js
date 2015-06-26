@@ -59,6 +59,15 @@ Posts.schema = new SimpleSchema({
       rows: 5
     }
   },
+  private: {
+    type: Boolean,
+    optional: true,
+    defaultValue: false,
+    editableBy: ["member", "admin"],
+    autoform: {
+      Label: "Private Post"
+    }
+  },
   /**
     HTML version of the post body
   */
