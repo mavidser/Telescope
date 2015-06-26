@@ -7,6 +7,8 @@ Meteor.publish('postsList', function(terms) {
     terms.user = Meteor.users.findOne(this.userId);
     if(terms.user)
       terms.user = terms.user.username;
+    else
+      return [];
     terms.admin = Users.is.adminById(this.userId);
     var parameters = Posts.getSubParams(terms),
         posts = Posts.find(parameters.find, parameters.options);
