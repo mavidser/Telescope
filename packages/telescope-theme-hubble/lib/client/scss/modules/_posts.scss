@@ -433,6 +433,11 @@
 }
 .post-meta-item {
 	display: inline-block;
+	.private {
+		background: #a00;
+		padding: 0px 5px;
+		color: #fff;
+	}
 }
 .post-body, .page-body {
 	@extend .has-shadow;
