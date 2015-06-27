@@ -201,6 +201,10 @@ Meteor.methods({
     if (!user || !Users.can.edit(user, post)) {
       throw new Meteor.Error(601, i18n.t('sorry_you_cannot_edit_this_post'));
     }
+    
+    // fix for the ubg where url is not editable to be blank
+    if (!('url' in modifier['$set']))
+      modifier['$unset']['url'] = '';
 
     // go over each field and throw an error if it's not editable
     // loop over each operation ($set, $unset, etc.)
